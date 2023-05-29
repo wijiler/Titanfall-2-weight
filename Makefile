@@ -1,2 +1,2 @@
 build:
-	clang
+	clang -o weight.o weight.c
