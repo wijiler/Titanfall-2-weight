@@ -16,9 +16,10 @@ float ppk(unsigned int kills)
     }
     return points;
 }
-float weaponweightcalc(unsigned int weaponkills, unsigned int weapondeaths, float weaponkd)
+float weaponweightcalc(unsigned int weaponkills, unsigned int weapondeaths)
 {
     float weight = 0;
+    float weaponkd = weaponkills / weapondeaths;
     float p = ppk(weaponkills);
     int killweight = (weaponkills * p) / (weapondeaths / 5);
     float kdweight;
@@ -33,9 +34,10 @@ float weaponweightcalc(unsigned int weaponkills, unsigned int weapondeaths, floa
     weight = (kdweight + killweight) / 2;
     return weight;
 }
-float overallweightcalc(unsigned int kills, unsigned int deaths, float kd)
+float overallweightcalc(unsigned int kills, unsigned int deaths)
 {
     float weight = 0;
+    float kd = kills/deaths;
     float p = ppk(kills);
     int killweight = (kills * p) / (deaths / 5);
     float kdweight;

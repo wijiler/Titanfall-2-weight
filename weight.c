@@ -2,7 +2,7 @@
 #include "calc.h"
 int main()
 {
-    float weight = overallweightcalc(3000,1000,3);
+    float weight = overallweightcalc(3000,1000);
     printf("%f \n",weight); 
     return 0;
 }
