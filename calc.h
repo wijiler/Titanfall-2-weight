@@ -19,6 +19,11 @@ float ppk(unsigned int kills)
 float weaponweightcalc(unsigned int weaponkills, unsigned int weapondeaths)
 {
     float weight = 0;
+    if( weaponkills < 100 ) {
+	weight = 100;
+	return weight;
+    }
+    else {
     float weaponkd = weaponkills / weapondeaths;
     float p = ppk(weaponkills);
     int killweight = (weaponkills * p) / (weapondeaths / 5);
@@ -33,10 +38,16 @@ float weaponweightcalc(unsigned int weaponkills, unsigned int weapondeaths)
     }
     weight = (kdweight + killweight) / 2;
     return weight;
+    }
 }
 float overallweightcalc(unsigned int kills, unsigned int deaths)
 {
     float weight = 0;
+    if( kills < 100 ) {
+	weight = 100;
+	return weight;
+    }
+    else {
     float kd = kills/deaths;
     float p = ppk(kills);
     int killweight = (kills * p) / (deaths / 5);
@@ -51,4 +62,5 @@ float overallweightcalc(unsigned int kills, unsigned int deaths)
     }
     weight = (kdweight + killweight) / 2;
     return weight;
+    }
 }
